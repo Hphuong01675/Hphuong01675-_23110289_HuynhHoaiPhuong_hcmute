@@ -1255,35 +1255,89 @@ class Puzzle8:
               f"open_set_size: {len(open_set)}")
         return None, time.time() - start_time, 0, self.stats, belief_states
     
-    def and_or_tree_search(self, depth_limit=50):
+    def and_or_tree_search(self, initial_state=None, depth_limit=20):
+        """
+        AND-OR Tree Search for the 8-puzzle, treating states as OR nodes (choose one action)
+        and actions as AND nodes (explore outcomes of each action). Uses a recursive approach
+        to reflect the true spirit of AND-OR Tree Search without heuristic guidance.
+        Defaults to self.initial if initial_state is None.
+        """
         self.reset_stats()
         start_time = time.time()
-        if self.initial == self.goal:
-            return [], time.time() - start_time, 0, self.stats, []
-        if not self.is_solvable(self.initial):
+        state_count = [1]  # Sử dụng list để thay đổi giá trị trong hàm đệ quy
+        
+        # Sử dụng self.initial nếu initial_state không được truyền
+        initial_state = initial_state if initial_state is not None else self.initial
+        
+        # Trường hợp đặc biệt: trạng thái ban đầu đã là mục tiêu
+        if initial_state == self.goal:
+            self.stats["states_visited"] = 1
+            return [initial_state], time.time() - start_time, 0, self.stats, []
+        
+        # Kiểm tra tính khả thi
+        if not self.is_solvable(initial_state):
             return None, time.time() - start_time, 0, self.stats, []
-        stack = [(self.initial, [], 0)]
+        
+        # Tập hợp các trạng thái đã thăm
         visited = set()
-        self.visited_states.add(self.initial)
-        while stack:
-            if time.time() - start_time > self.max_runtime:
-                return None, time.time() - start_time, 0, self.stats, []
-            self.stats["max_fringe_size"] = max(self.stats["max_fringe_size"], len(stack))
-            state, path, depth = stack.pop()
-            self.stats["states_visited"] += 1
-            self.visited_states.add(state)
+        self.visited_states.add(initial_state)
+        
+        def and_or_search(state, depth, path):
+            """
+            Recursive AND-OR Tree Search.
+            - OR node: State, where we try each action to find one that leads to the goal.
+            - AND node: Outcomes of an action, where all outcomes must lead to the goal (in 8-puzzle, one outcome per action).
+            """
+            # Kiểm tra giới hạn độ sâu
+            if depth > depth_limit:
+                return None
+            
+            # Kiểm tra mục tiêu
             if state == self.goal:
-                return path, time.time() - start_time, len(path), self.stats, []
-            if depth < depth_limit and state not in visited:
-                visited.add(state)
-                neighbors = self.get_neighbors(state)
-                for idx, neighbor in enumerate(reversed(neighbors)):
-                    if neighbor not in visited:
-                        self.visited_states.add(neighbor)
-                        self.parent_map[neighbor] = (state, len(neighbors) - 1 - idx)
-                        new_path = path + [neighbor]
-                        stack.append((neighbor, new_path, depth + 1))
-        return None, time.time() - start_time, 0, self.stats, []
+                return path + [state]
+            
+            # Đánh dấu trạng thái đã thăm
+            if state in visited:
+                return None
+            visited.add(state)
+            self.stats["states_visited"] += 1
+            
+            # Nút OR: Thử tất cả các hành động từ trạng thái này
+            neighbors = self.get_neighbors(state)
+            self.stats["nodes_expanded"] += 1
+            
+            for idx, neighbor in enumerate(neighbors):
+                if neighbor in visited:
+                    continue
+                
+                # Nút AND: Trong 8-puzzle, mỗi hành động chỉ có một kết quả (deterministic)
+                self.visited_states.add(neighbor)
+                state_count[0] += 1
+                
+                # Lưu thông tin cha để tái tạo đường đi
+                self.parent_map[neighbor] = (state, idx)
+                
+                # Đệ quy để khám phá trạng thái tiếp theo (nút OR)
+                result = and_or_search(neighbor, depth + 1, path + [state])
+                
+                # Nếu tìm thấy đường đi đến mục tiêu qua hành động này, trả về
+                if result is not None:
+                    return result
+            
+            # Không tìm thấy đường đi qua trạng thái này
+            return None
+        
+        # Gọi hàm đệ quy từ trạng thái ban đầu
+        result = and_or_search(initial_state, 0, [])
+        elapsed = time.time() - start_time
+        
+        # Cập nhật state_count vào stats
+        self.stats["state_count"] = state_count[0]
+        
+        # Trả về với stats là dictionary
+        if result is None:
+            return None, elapsed, 0, self.stats, []
+        return result, elapsed, len(result) - 1, self.stats, []
 
     def backtracking(self):
         self.reset_stats()
