@@ -179,7 +179,7 @@ Lấy cảm hứng từ di truyền học: khởi tạo quần thể, chọn l�
 - Cấu trúc tìm kiếm: AND-OR TREE.
 - Giải pháp: dùng AND-OR Search.
 
-![Nondeterministic](/AI_DoAnCaNhan/AND_OR.gif)
+![Nondeterministic](/DoAnCaNhan_gif/AND_OR.gif)
 
 ##### Search with No Observation
 - Không có thông tin gì về trạng thái hiện tại.
@@ -189,7 +189,7 @@ Lấy cảm hứng từ di truyền học: khởi tạo quần thể, chọn l�
     - Lặp lại cho đến khi tất cả trạng thái đều đạt trạng thái đích.
 - Giải pháp: xây dựng Belief State Search (duy trì tập hợp trạng thái niềm tin)
 
-![NoObservation](/AI_DoAnCaNhan/Belief.gif)
+![NoObservation](/DoAnCaNhan_gif/Belief.gif)
 
 ##### Partially Observable Search
 - Tác nhân không thấy toàn bộ môi trường, nhưng có thể cảm nhận một phần (ví dụ qua cảm biến).
@@ -197,8 +197,8 @@ Lấy cảm hứng từ di truyền học: khởi tạo quần thể, chọn l�
 
 $\to$ Nhóm thuật toán này trong đồ án hiện đang phát triển.
 ##### So sánh các thuật toán trong nhóm
-![Comparison](/AI_DoAnCaNhan/Complex_Environment.png)
-![Comparison](/AI_DoAnCaNhan/Complex_Environment_2.png)
+![Comparison](/DoAnCaNhan_gif/Complex_Environment.jpg)
+![Comparison](/AI_DoAnCaNhan/Complex_Environment_2.jpg)
 
 #### 2.5. Các thuật toán Tìm kiếm thỏa mãn ràng buộc (Constraint Satisfaction Problem)
 
@@ -216,13 +216,13 @@ $\to$ Bài toán ràng buộc (CSP) là dạng bài toán trong đó mỗi biế
 - Độ phức tạp không gian: $O(n)$
     - d: số miền
     - n: số biến
-![Backtracking](/AI_DoAnCaNhan/Backtracking.gif)
+![Backtracking](/DoAnCaNhan_gif/Backtracking.gif)
 ##### Forward Checking
 - Bản cải tiến của Backtracking. Sau khi gán giá trị cho một biến, loại bỏ các giá trị bất hợp lệ ra khỏi miền của các biến liên quan.
 - Open List: danh sách miền cập nhật cho từng biến.
 - Độ phức tạp thời gian: $O(nd^2)$
 - Độ phức tạp không gian: $O(nd)$
-![Backtracking with forward checking](/AI_DoAnCaNhan/Forward_checking.gif)
+![Backtracking with forward checking](/DoAnCaNhan_gif/Forward_checking.gif)
 ##### Min-Conflict
 - Bắt đầu từ một gán ngẫu nhiên, sau đó lặp lại: 
     - Chọn biến vi phạm ràng buộc.
@@ -230,11 +230,11 @@ $\to$ Bài toán ràng buộc (CSP) là dạng bài toán trong đó mỗi biế
 
 - Độ phức tạp thời gian: $O(n)$
 - Độ phức tạp không gian: $O(n)$
-![Min-Conflict](/AI_DoAnCaNhan/Min_conflict.gif)
+![Min-Conflict](/DoAnCaNhan_gif/Min_conflict.gif)
 
 ##### So sánh các thuật toán trong nhóm
-![Comparison](/AI_DoAnCaNhan/CSPs.png)
-![Comparison](/AI_DoAnCaNhan/CSPs_2.png)
+![Comparison](/DoAnCaNhan_gif/CPSs.jpg)
+![Comparison](/DoAnCaNhan_gif/CSPs_1.jpg)
 
 #### 2.6. Các thuật toán Tìm kiếm học tăng cường (Reinforcement Learning)
 
@@ -259,7 +259,7 @@ $Q(s,a) ← Q(s,a) + \alpha[r+ \gamma maxQ(s', a') − Q(s,a)]$
 
 $\to$ Đây là thuật toán không phù hợp để giải bài toán 8-Puzzle.
 
-![Q_Learning](/AI_DoAnCaNhan/Q_Learning.gif)
+![Q_Learning](/DoAnCaNhan_gif/Q_Learning.gif)
 
 ##### SARSA
 - Học bảng Q tương tự Q-Learning nhưng theo chính sách hiện tại.
