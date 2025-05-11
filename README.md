@@ -26,7 +26,7 @@
 - Độ phức tạp thời gian: $1 + b + b^2 + ... + b^d = O(b^d)$
 - Độ phức tạp không gian: $O(b^d)$
 
-![BFS](/AI_DoAnCaNhan/BFS.gif)
+![BFS](/DoAnCaNhan_gif/BFS.gif)
 
 ##### Depth-First Search (DFS):
 - Ưu tiên mở rộng theo chiều sâu, đi theo một nhánh cho đến khi không thể đi tiếp
