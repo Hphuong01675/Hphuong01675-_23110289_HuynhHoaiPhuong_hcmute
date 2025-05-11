@@ -198,7 +198,7 @@ Lấy cảm hứng từ di truyền học: khởi tạo quần thể, chọn l�
 $\to$ Nhóm thuật toán này trong đồ án hiện đang phát triển.
 ##### So sánh các thuật toán trong nhóm
 ![Comparison](/DoAnCaNhan_gif/Complex_Environment.jpg)
-![Comparison](/AI_DoAnCaNhan/Complex_Environment_2.jpg)
+![Comparison](/DoAnCaNhan_gif/Complex_Environment_2.jpg)
 
 #### 2.5. Các thuật toán Tìm kiếm thỏa mãn ràng buộc (Constraint Satisfaction Problem)
 
@@ -216,12 +216,16 @@ $\to$ Bài toán ràng buộc (CSP) là dạng bài toán trong đó mỗi biế
 - Độ phức tạp không gian: $O(n)$
     - d: số miền
     - n: số biến
+ 
+  
 ![Backtracking](/DoAnCaNhan_gif/Backtracking.gif)
 ##### Forward Checking
 - Bản cải tiến của Backtracking. Sau khi gán giá trị cho một biến, loại bỏ các giá trị bất hợp lệ ra khỏi miền của các biến liên quan.
 - Open List: danh sách miền cập nhật cho từng biến.
 - Độ phức tạp thời gian: $O(nd^2)$
 - Độ phức tạp không gian: $O(nd)$
+
+  
 ![Backtracking with forward checking](/DoAnCaNhan_gif/Forward_checking.gif)
 ##### Min-Conflict
 - Bắt đầu từ một gán ngẫu nhiên, sau đó lặp lại: 
@@ -230,6 +234,8 @@ $\to$ Bài toán ràng buộc (CSP) là dạng bài toán trong đó mỗi biế
 
 - Độ phức tạp thời gian: $O(n)$
 - Độ phức tạp không gian: $O(n)$
+
+
 ![Min-Conflict](/DoAnCaNhan_gif/Min_conflict.gif)
 
 ##### So sánh các thuật toán trong nhóm
