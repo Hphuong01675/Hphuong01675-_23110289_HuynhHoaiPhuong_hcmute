@@ -34,7 +34,7 @@
 - Độ phức tạp thời gian: $T(n)= 1+ n^2 + n^3 +...+ n^m =O(n^m)$
 - Độ phức tạp không gian: $O(bm)$
 
-![DFS](/AI_DoAnCaNhan/DFS.gif)
+![DFS](/DoAnCaNhan_gif/DFS.gif)
 
 ##### Uniform Cost Search (UCS):
 - Mở rộng nút có chi phí đường dẫn tối thiểu.
@@ -42,7 +42,7 @@
 - Độ phức tạp thời gian: $O(b^{1 + [C*/ε]})$
 - Độ phức tạp không gian: $O(b^{1 + [C*/ε]})$
 
-![UCS](/AI_DoAnCaNhan/UCS.gif)
+![UCS](/DoAnCaNhan_gif/UCS.gif)
 
 ##### Iterative Deepening Search (IDS):
 - Kết hợp ưu điểm của BFS và DFS. Tìm theo chiều sâu nhưng giới hạn độ sâu, tăng dần qua mỗi vòng.
@@ -51,11 +51,11 @@
 - Độ phức tạp thời gian: $O(b^d)$
 - Độ phức tạp không gian: $O(bd)$ 
 
-![IDS](/AI_DoAnCaNhan/IDS.gif)
+![IDS](/DoAnCaNhan_gif/IDS.gif)
 
 ##### So sánh các thuật toán trong nhóm
-![Comparison](/AI_DoAnCaNhan/Uninformed_Search.jpg)
-![Comparison](/AI_DoAnCaNhan/Uninformed_Search_2.jpg)
+![Comparison](/DoAnCaNhan_gif/Uninformed_Search.jpg)
+![Comparison](/DoAnCaNhan_gif/Uninformed_Search_2.jpg)
 
 #### 2.2. Các thuật toán Tìm kiếm có thông tin (Informed Search Algorithms)
 
@@ -71,7 +71,7 @@
     - m là độ sâu của cây/đồ thị khi tìm ra Solution
 - Độ phức tạp về không gian: trong trường hợp xấu nhất là $O(b^m)$
 
-![Greedy](/AI_DoAnCaNhan/Greedy.gif)
+![Greedy](/DoAnCaNhan_gif/Greedy.gif)
 
 ##### A* Search:
 - Sử dụng hàm đánh giá f(N) = g(N) + h(N)
@@ -81,7 +81,7 @@
 - Open List: hàng đợi ưu tiên
 - Độ phức tạp tính toán và yêu cầu bộ nhớ của A* đều là $O(b^m)$
 
-![Astar](/AI_DoAnCaNhan/A_star.gif)
+![Astar](/DoAnCaNhan_gif/A_star.gif)
 
 ##### IDA* Search:
 - Mở rộng từ thuật toán A*, sử dụng các khái niệm về DFS lặp lại - làm sâu dựa trên các ngưỡng đặt trước.
@@ -92,10 +92,10 @@
     - b: số nhánh
     - d: là độ sâu
 
-![IDAstar](/AI_DoAnCaNhan/IDA_star.gif)
+![IDAstar](/DoAnCaNhan_gif/IDA_star.gif)
 
 ##### So sánh các thuật toán trong nhóm
-![Comparison](/DoAnCaNhan/Informed_Search.jpg)
+![Comparison](/DoAnCaNhan_gif/Informed_Search.jpg)
 
 #### 2.3. Các thuật toán Tìm kiếm cục bộ (Local Search Algorithms)
 
@@ -114,7 +114,7 @@ Chỉ kiểm tra từng trạng thái lận cận của nó và nếu nó tìm t
 - BƯỚC 5: Lặp lại BƯỚC 2-BƯỚC 4 trong n lần lặp hoặc cho đến khi giá trị của mục tiêu tại trạng thái hiện tại cao hơn tất cả các hàng xóm.
 - BƯỚC 6: Trả về trạng thái hiện tại và giá trị hàm mục tiêu của nó.
 
-![SimpleHC](/AI_DoAnCaNhan/SH.gif)
+![SimpleHC](/DoAnCaNhan_gif/SH.gif)
 
 ##### Leo đồi dốc nhất (Steepest-Ascent hill-climbing)
 Thuật toán này kiểm tra tất cả các nút lân cận của trạng thái hiện tại và chọn một nút lân cận gần nhất với trạng thái mục tiêu.
@@ -126,7 +126,7 @@ Thuật toán này kiểm tra tất cả các nút lân cận của trạng thá
 - BƯỚC 5: Lặp lại BƯỚC 2-BƯỚC 4 trong n lần lặp.
 - BƯỚC 6: Trả về trạng thái hiện tại và giá trị hàm mục tiêu của nó.
 
-![SteepestHC](/AI_DoAnCaNhan/SteepestH.gif)
+![SteepestHC](/DoAnCaNhan_gif/SteepestH.gif)
 
 ##### Leo đồi ngẫu nhiên (Stochastic hill Climbing)
 Lựa chọn ngẫu nhiên một hàng xóm. Nếu hàng xóm đó tốt hơn trạng thái hiện tại, hàng xóm đó sẽ được chọn làm trạng thái hiện tại và thuật toán lặp lại. Ngược lại, nếu hàng xóm được chọn không tốt hơn, thuật toán sẽ chọn ngẫu nhiên một hàng xóm khác và so sánh. Thuật toán kết thúc và trả lại trạng thái hiện tại khi đã hết “kiên nhẫn” (vượt ngưỡng).
@@ -140,26 +140,26 @@ thành trạng thái hiện tại.
 - BƯỚC 5: Lặp lại BƯỚC 2-BƯỚC 4 trong n lần lặp.
 - BƯỚC 6: Trả về trạng thái hiện tại và giá trị hàm mục tiêu của nó.
 
-![StochasticHC](/AI_DoAnCaNhan/StoH.gif)
+![StochasticHC](/DoAnCaNhan_gif/StoH.gif)
 
 ##### Simulated Annealing
 Cho phép thoát khỏi đỉnh cục bộ bằng cách chấp nhận trạng thái kém hơn theo xác suất, giảm dần theo "nhiệt độ".
 
-![SimulatedAnnealing](/AI_DoAnCaNhan/Simulated_Annealing.gif)
+![SimulatedAnnealing](/DoAnCaNhan_gif/Simulated_Annealing.gif)
 
 ##### Beam Search
 Giữ lại k trạng thái tốt nhất tại mỗi bước (k-beam). Giống BFS nhưng giới hạn độ rộng.
 
-![BeamSearch](/AI_DoAnCaNhan/Beam_Search.gif)
+![BeamSearch](/DoAnCaNhan_gif/Beam_Search.gif)
 
 ##### Genetic Algorithms
 Lấy cảm hứng từ di truyền học: khởi tạo quần thể, chọn lọc, lai ghép, đột biến để tạo thế hệ tiếp theo.
 
-![GeneticAlgo](/AI_DoAnCaNhan/GA.gif)
+![GeneticAlgo](/DoAnCaNhan_gif/GA.gif)
 
 ##### So sánh các thuật toán trong nhóm
-![Comparison](/AI_DoAnCaNhan/Local_Search.png)
-![Comparison](/AI_DoAnCaNhan/Local_Search_2.png)
+![Comparison](/DoAnCaNhan_gif/Local_Search.jpg)
+![Comparison](/DoAnCaNhan_gif/Local_search_2.jpg)
 - **Chú thích**:
     - SH: Stochastic Hill Climbing
     - SA: Simulated Annealing
