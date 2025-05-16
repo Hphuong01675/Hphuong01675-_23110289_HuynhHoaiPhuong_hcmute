@@ -280,3 +280,53 @@ $Q(s,a) ← Q(s,a) + \alpha[r+ \gamma Q(s', a') − Q(s,a)]$
     - Target network: giữ mạng Q mục tiêu ổn định.
 - Công thức cập nhật:
 $loss = (r + \gamma * max(Q_target(s'), a') - Q(s, a))^2$
+
+# Hướng dẫn sử dụng 8-Puzzle Solver
+
+## Giới thiệu
+Ứng dụng 8-Puzzle Solver là một công cụ giao diện đồ họa được thiết kế để giải bài toán 8-puzzle cổ điển bằng nhiều thuật toán khác nhau. Hướng dẫn này sẽ giúp bạn sử dụng ứng dụng một cách hiệu quả.
+
+## Bắt đầu
+1. Khởi động ứng dụng bằng cách chạy file Python đã cung cấp.
+2. Cửa sổ chính sẽ mở ra, hiển thị bảng `puzzle_board`, các điều khiển (`controls`), trạng thái niềm tin (`belief_states`), thống kê (`statistics`), đường đi giải pháp (`solution_path`), và phần đánh giá thuật toán (`algorithm_evaluation`).
+
+## Sử dụng ứng dụng
+### 1. Chọn thuật toán
+- Tìm menu thả xuống `algorithm` trong phần `controls`.
+- Nhấn vào menu để chọn một thuật toán từ danh sách (ví dụ: `BFS`, `DFS`, `A*`, `Hill Climbing`, v.v.).
+- Trạng thái ban đầu của `puzzle_board` sẽ được điều chỉnh dựa trên yêu cầu của thuật toán đã chọn.
+
+### 2. Giải puzzle
+- Nhấn nút `solve_button` để bắt đầu thuật toán đã chọn.
+- Ứng dụng sẽ hiển thị quá trình giải trong phần `solution_path`.
+- Đối với các thuật toán như `Belief State Search` hoặc `Search with Partial Observation`, các `belief_states` sẽ được hiển thị trong phần tương ứng.
+
+### 3. Xem kết quả
+- Sau khi giải xong, đường đi giải pháp sẽ được hiển thị từng bước trong phần `solution_path`.
+- Các thông số thống kê như `running_time`, `steps`, `nodes_expanded`, `max_fringe_size`, và `states_visited` sẽ được cập nhật trong phần `statistics`.
+- Các chỉ số đánh giá sẽ được thêm vào bảng `algorithm_evaluation`.
+
+### 4. Xem hoạt ảnh giải pháp
+- Bảng `puzzle_board` sẽ tự động hiển thị hoạt ảnh của đường đi giải pháp sau khi giải xong.
+- Điều chỉnh tốc độ hoạt ảnh bằng cách thay đổi giá trị `animation_delay` trong mã (mặc định thay đổi theo thuật toán).
+
+### 5. Đặt lại puzzle
+- Nhấn nút `reset_button` để trở về trạng thái ban đầu và xóa tất cả kết quả.
+
+### 6. Vẽ cây không gian trạng thái
+- Nhấn nút `drawtree_button` để mở một cửa sổ mới hiển thị cây không gian trạng thái.
+- Sử dụng bánh xe chuột để phóng to/thu nhỏ và nhấn-giữ-kéo để di chuyển cây.
+
+### 7. Đánh giá thuật toán
+- Sử dụng nút `compare_button` để xem so sánh các chỉ số hiệu suất.
+- Nhấn `clear_eval_button` để làm mới bảng `algorithm_evaluation`.
+- Nhấn `save_eval_button` để lưu dữ liệu vào file CSV.
+- Nhấn `chart_button` để xem biểu đồ cột về thời gian chạy của các thuật toán.
+
+## Khắc phục sự cố
+- Nếu xảy ra lỗi (ví dụ: trạng thái ban đầu không thể giải được), một thông báo lỗi sẽ hiện lên.
+- Hủy thuật toán đang chạy bằng cách sử dụng `reset_button` hoặc chọn thuật toán mới.
+- Đảm bảo tất cả các thư viện cần thiết (ví dụ: `tkinter`, `matplotlib`) đã được cài đặt.
+
+## Mẹo
+- Thử nghiệm với các thuật toán khác nhau để so sánh hiệu quả của chúng.
