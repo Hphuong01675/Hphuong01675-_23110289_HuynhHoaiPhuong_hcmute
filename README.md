@@ -282,10 +282,6 @@ $Q(s,a) ← Q(s,a) + \alpha[r+ \gamma Q(s', a') − Q(s,a)]$
 $loss = (r + \gamma * max(Q_target(s'), a') - Q(s, a))^2$
 
 # Hướng dẫn sử dụng 8-Puzzle Solver
-
-## Giới thiệu
-Ứng dụng 8-Puzzle Solver là một công cụ giao diện đồ họa được thiết kế để giải bài toán 8-puzzle cổ điển bằng nhiều thuật toán khác nhau. Hướng dẫn này sẽ giúp bạn sử dụng ứng dụng một cách hiệu quả.
-
 ## Bắt đầu
 1. Khởi động ứng dụng bằng cách chạy file Python đã cung cấp.
 2. Cửa sổ chính sẽ mở ra, hiển thị bảng `puzzle_board`, các điều khiển (`controls`), trạng thái niềm tin (`belief_states`), thống kê (`statistics`), đường đi giải pháp (`solution_path`), và phần đánh giá thuật toán (`algorithm_evaluation`).
